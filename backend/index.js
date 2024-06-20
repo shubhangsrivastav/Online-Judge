@@ -16,8 +16,8 @@ app.use(bodyParser.json());
 app.get("/",(req,res)=>{
     res.send("hello world");
 })
-const generateJwt=(firstName,password,id)=>{
-   var token=jwt.sign({firstName:firstName,password:password,id:id},SECRET_KEY,{expiresIn:"1h"});
+const generateJwt=(id)=>{
+   var token=jwt.sign({id:id},SECRET_KEY,{expiresIn:"1h"});
     return token;
 }
 
@@ -47,8 +47,8 @@ app.post ("/register",async(req,res)=>{
         email
        });
        //generate token for user and send it 
-       const token = generateJwt(firstName,password,user._id);
-        
+       const token = generateJwt(user._id);
+       //send the response
         user.password=undefined;
         res.status(201).json({
             msg:"You have been successfully registered!",
@@ -56,6 +56,44 @@ app.post ("/register",async(req,res)=>{
             token:token
         });
     } catch (error) {
+        console.error(error);
+    }
+})
+
+app.post("/login",async(req,res)=>{
+    try{
+        //get the user data
+        const {email,password}=req.body;
+        //check all the data is present or not
+        if(!email || !password){
+            res.status(404).send("Bad request! Some data is missing.");
+        }
+        //check registered or not
+        const user=await User.findOne({email});
+        if(!user){
+            res.status(401).send("User not registered!");
+        }
+        //compare the password
+        const enteredPassword =await bcrypt.compare(password,user.password);
+        if(!enteredPassword){
+            res.status(404).send("Bad request ! Password is incorrect.");
+        }
+        //generate Jwt
+        const token=generateJwt(user._id);
+        //store cookies
+        const options={
+            expires:new Date(Date.now()+(24*60*60*1000)),
+            httpOnly:true
+        }
+        //send the response
+        user.password=undefined;
+        res.status(200).cookie("token",token,options).json({
+            msg:"Logged in Successfully!",
+            user,
+            token:token
+        })
+    }
+    catch(error){
         console.error(error);
     }
 })
