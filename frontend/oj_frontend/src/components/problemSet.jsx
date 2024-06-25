@@ -1,7 +1,7 @@
-import Appbar from "./appbar"
+import Navbar from "./navbar"
 function ProblemSet(){
 return <>
-<Appbar></Appbar>
+<Navbar></Navbar>
 Problems Loading...
 </>
 }

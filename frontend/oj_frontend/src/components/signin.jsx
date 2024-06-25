@@ -1,38 +1,47 @@
-import Card from '@mui/material/Card'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography';
-import { useNavigate } from 'react-router-dom';
+
+import Navbar from "./navbar";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { Button } from "@mui/material";
+import "./signin.css"
 import axios from 'axios';
 function Signin(){
-  const  navigate=useNavigate();
+    const  navigate=useNavigate();
+   
+    
+    const [email,setEmail]=useState("");  
+    const [password,setPassword]=useState("");  
+    
+   
+    const changeEmail=(e)=>{
+      setEmail(e.target.value);
+    }
+    const changePassword=(e)=>{
+      setPassword(e.target.value);
+    }
 
-  const [email,setEmail]=useState("");  
-  const [password,setPassword]=useState("");  
-  
-  
-  const changeEmail=(e)=>{
-    setEmail(e.target.value);
-  }
-  const changePassword=(e)=>{
-    setPassword(e.target.value);
-  }
-return (
-<div>
-    <div style={{color:"white",paddingLeft:20}}>
-    <Typography variant="h3" gutterBottom>Codify</Typography>
-    </div>
-    <div style={{color:"white",display:"flex",justifyContent:"center"}}>
-        <Card   variant={"outlined"} style={{width:400,padding:20}}>
-      
-      <TextField  fullWidth={true} id="outlined-basic" label="Email" variant="outlined" onChange={changeEmail} />
-      <br />
-      <br />
-      <TextField  fullWidth={true} id="outlined-basic" label="Password" variant="outlined" onChange={changePassword} />
-      <br />
-      <br />
-      <Button variant="contained" onClick={
+return (<>
+
+
+<Navbar></Navbar>
+<div style={{display:"flex",justifyContent:"center", marginTop:30}}>
+<div className= "wrapper">
+    <form action="">
+        <h1>Signin</h1>
+        <div className="input-box">
+            <input type="text" id="emailbox" placeholder="Email" required onChange={changeEmail}/>
+            <i className='bx bxs-user'></i>
+        </div>
+        <div className="input-box">
+            <input id="password box" type="password" placeholder="Password" required onChange={changePassword}/>
+            <i className='bx bxs-lock'></i>
+        </div>
+        <div className="remember-forgot">
+    <label><input id="checkbox" type="checkbox" />Remember me</label>
+    <a href="#">Forgot Password</a>
+        </div>
+        <div>
+        <Button variant="contained" onClick={
         async()=>{
           if(password=="" || email==""){
            alert("Some feilds are empty! Kindly fill them.")
@@ -49,18 +58,23 @@ return (
              alert("Successfully Signed in!");
            }
            else{
-             navigate("/signin");
+             navigate("/");
              alert(resp.data.msg);
            }
           }
    
          }
       }>Signin</Button>
-      <br />
-     
-    </Card>
+      </div>
+        <div className="register-link">
+            <p>Dont't have an account? <a href="/register">Register</a></p>
+
+        </div>
+    </form>
+
     </div>
-    </div>
-)
+    </div>  
+</>)
 }
-export default  Signin
+
+export default Signin

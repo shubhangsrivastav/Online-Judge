@@ -1,12 +1,12 @@
-import Card from '@mui/material/Card'
-import TextField from '@mui/material/TextField'
-import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Appbar from './appbar';
+import Navbar from './navbar';
+import "./signin.css"
+import { Button } from '@mui/material';
 function Register(){
-  const  navigate=useNavigate();
+    const  navigate=useNavigate();
 
   const [username,setUsername]=useState("");  
   const [firstname,setFirstname]=useState("");  
@@ -29,65 +29,69 @@ function Register(){
   const changePassword=(e)=>{
     setPassword(e.target.value);
   }
-  return (
-        <>
-      <div style={{color:"white",paddingLeft:20}}>
-      <Typography variant="h3" gutterBottom>Codify</Typography>
-      </div>
-      <div style={{display:'flex',justifyContent:'center',color:'white'}}>
-      <Typography variant='h5'> Create an account and Start Your Coding Journey !</Typography>
-     </div>
-     <br />
-     <br />
-        <div style={{color:"white",display:"flex",justifyContent:"center"}}>
-        <Card   variant={"outlined"} style={{width:400,padding:20}}>
-      <TextField fullWidth={true} id="outlined-basic" label="Username" variant="outlined" onChange={changeUsername}  />
-      <br />
-      <br />
-      <TextField  fullWidth={true} id="outlined-basic" label="First Name" variant="outlined" onChange={changeFirstName} />
-      <br />
-      <br />
-      <TextField  fullWidth={true} id="outlined-basic" label="Last Name" variant="outlined" onChange={changeLastName} />
-      <br />
-      <br />
-      <TextField  fullWidth={true} id="outlined-basic" label="Email" variant="outlined" onChange={changeEmail} />
-      <br />
-      <br />
-      <TextField  fullWidth={true} id="outlined-basic" label="Password" variant="outlined" onChange={changePassword}  />
-      <br />
-      <br />
-      {/* <Button variant='contained' onClick={()=>{
-        navigate("/problemSet");
-      }}>Register</Button> */}
-      <Button variant="contained" onClick={async()=>{
-       if(password=="" || username=="" || lastname=="" || firstname=="" || email==""){
+  return (<>
+
+
+<Navbar></Navbar>
+    
+    <div style={{display:"flex",justifyContent:"center",marginTop:20}}>
+    <div className= "wrapper" style={{marginTop:-10, paddingBottom:15}}>
+        <form action="">
+            <h1>Register</h1>
+            <div className="input-box">
+                <input type="text" id="username box" placeholder="Username" required onChange={changeUsername}/>
+                <i className='bx bxs-user'></i>
+            </div>
+            <div className="input-box">
+                <input id="firstname box" type="text" placeholder="First Name" required onChange={changeFirstName}/>
+                <i className='bx bxs-user'></i>
+            </div>
+            <div className="input-box">
+                <input id="lastname box" type="text" placeholder="Last Name" required onChange={changeLastName}/>
+                <i className='bx bxs-user'></i>
+            </div>
+            <div className="input-box">
+                <input id="email box" type="text" placeholder="Email" required onChange={changeEmail}/>
+                <i class='bx bx-envelope'></i>
+            </div>
+            <div className="input-box">
+                <input id="password box" type="password" placeholder="Password" required onChange={changePassword}/>
+                <i className='bx bxs-lock'></i>
+            </div>
+           
+            <div>
+            <Button variant="contained" onClick={
+            async()=>{
+              if(password=="" || username=="" || lastname=="" || firstname=="" || email==""){
         alert("Some feilds are empty! Kindly fill them.")
        }
-       else{
-        const resp =await axios.post("http://localhost:3000/register",{
-          userName:username,firstName:firstname,lastName:lastname,email:email,password:password
-        });
-        console.log(resp.data);
-        console.log(typeof(resp.data.msg));
-        if(resp.data.msg==="Successfull"){
-          console.log(1);
-          navigate("/problemSet");
-          alert("Successfully Registered!");
-        }
-        else{
-          navigate("/");
-          alert(resp.data.msg);
-        }
-       }
-
-      }}>Register</Button>
-      <br />
-      Already Registered? <a href="/signin">Signin</a>
-    </Card>
-   
+              else{
+                const resp =await axios.post("http://localhost:3000/register",{
+                    userName:username,firstName:firstname,lastName:lastname,email:email,password:password
+                  });
+               console.log(resp.data);
+               console.log(typeof(resp.data.msg));
+               if(resp.data.msg==="Successfull"){
+                 console.log(1);
+                 navigate("/problemSet");
+                 alert("Successfully Registered!");
+               }
+               else{
+                 navigate("/register");
+                 alert(resp.data.msg);
+               }
+              }
+       
+             }
+          }>Register</Button>
+          </div>
+            
+        </form>
+    
         </div>
-        </>
-    )
+        </div>  
+    </>)
+    
 }
 
 export default Register
