@@ -1,14 +1,16 @@
-
+import { useSetRecoilState } from "recoil";
 import Navbar from "./navbar";
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from "@mui/material";
 import "./signin.css"
 import axios from 'axios';
+import { typeState } from "../store/atom/type";
+import { userNameState } from "../store/atom/username";
 function Signin(){
     const  navigate=useNavigate();
-   
-    
+   const setType=useSetRecoilState(typeState);
+   const setUsernameState=useSetRecoilState(userNameState);
     const [email,setEmail]=useState("");  
     const [password,setPassword]=useState("");  
     
@@ -54,6 +56,8 @@ return (<>
            console.log(typeof(resp.data.msg));
            if(resp.data.msg==="Successfull"){
              console.log(1);
+              setType(resp.data.type);
+              setUsernameState(resp.data.user.userName);
              navigate("/problemSet");
              alert("Successfully Signed in!");
            }

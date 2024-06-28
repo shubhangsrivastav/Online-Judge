@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Appbar from './appbar';
 import Navbar from './navbar';
 import "./signin.css"
 import { Button } from '@mui/material';
+import { useSetRecoilState } from "recoil";
+import { typeState } from "../store/atom/type";
+import { userNameState } from "../store/atom/username";
 function Register(){
     const  navigate=useNavigate();
-
+    const setType=useSetRecoilState(typeState);
+  const setUsernameState=useSetRecoilState(userNameState);
   const [username,setUsername]=useState("");  
   const [firstname,setFirstname]=useState("");  
   const [lastname,setLastname]=useState("");  
@@ -72,7 +75,9 @@ function Register(){
                console.log(resp.data);
                console.log(typeof(resp.data.msg));
                if(resp.data.msg==="Successfull"){
-                 console.log(1);
+          
+                 setType(resp.data.type);
+              setUsernameState(resp.data.user.userName);
                  navigate("/problemSet");
                  alert("Successfully Registered!");
                }
