@@ -23,7 +23,7 @@ function ProblemSet(){
     
 return <>
 <Navbar></Navbar>
-<div style={{display:"flex",justifyContent:"center" ,paddingTop:20}}>
+<div style={{display:"flex",justifyContent:"center", alignContent:"center",paddingTop:20,flexWrap:"wrap"}}>
 {
     problems.map((e)=>{
         return <Card title={e.title} sdes={e.shortdes} submissions={e.submissions} difficulty={e.difficulty} pid={e._id}></Card>

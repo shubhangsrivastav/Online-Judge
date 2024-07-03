@@ -11,17 +11,9 @@ import AddContest from './components/addContest';
 import AddProblem from './components/addProblem';
 import {RecoilRoot} from "recoil"
 function App() {
-  const appStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',
-    backgroundPosition: 'center',
-    
-    height: '100vh',
-    margin: '0'
-};
+  
   return (
-    <div style={appStyle}>
+    <div className="App">
      <RecoilRoot>
       <Router>
    
