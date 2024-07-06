@@ -1,0 +1,89 @@
+.card-editor{
+ 
+    background-color:transparent;
+    width:700px;
+    margin-right:20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown{
+    
+    width:250px;
+    height:30px;
+    margin:10px;
+    border-color: grey;
+    border-radius: 4px; 
+  padding: 2px;
+  border: 1px solid grey; 
+  outline: none; /
+    
+}
+.input{
+    width:300px;
+    height:100px;
+    background-color:transparent;
+    color:white;
+    border:2px solid grey;
+    border-radius:10px;
+    text-align: center;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.input::placeholder{
+    color: white;
+   margin-left: 50px;
+    
+}
+.action_btn-editor{
+    background-color: orange;
+    color:#fff;
+    padding:0.5rem 1rem;
+    border:none;
+    outline: none;
+    border-radius: 20px;
+    font-size:1rem ;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    margin: 20px;
+    width: 200px;
+    text-align: center;
+}
+.action_btn-editor:hover{
+    scale:1.05;
+    color:#fff;
+}
+.button-container{
+    margin: 20px;
+    width: 700px;
+    display: flex;
+    justify-content: flex-end;
+
+}
+.verdict{ width: 100%;
+
+    max-width: 700px;
+   height: 50px;
+    display: flex;
+    border-radius: 1.5rem;
+    border:1px solid transparent;
+    backdrop-filter:blur(1rem);
+    box-shadow: 1.3rem 1.3rem 1.3rem rgba(0,0,0,0.5);
+    border-top-color:rgba(255,255,255,0.5);
+    border-bottom-color:rgba(255,255,255,0.5);
+    border-right-color:rgba(255,255,255,0.1);
+    border-left-color:rgba(255,255,255,0.1);
+    color:white;
+    margin-bottom: 50px;
+    background-color: rgba(255,255,255,0.1);
+    padding-left: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-weight: bold;
+    font-size: large;
+}

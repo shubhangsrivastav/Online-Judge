@@ -28,7 +28,24 @@ const problemSchema=new mongoose.Schema({
     submissions:{
         type:Number,
         required:true,
-    }
+    },
+    exampleInput:{
+        type:String,
+        required:true,
+    },
+    exampleOutput:{
+        type:String,
+        required:true,
+    },
+    testCaseInput:{
+        type:String,
+        required:true,
+    },
+    testCaseOutput:{
+        type:String,
+        required:true,
+    },
+
 
 
 })

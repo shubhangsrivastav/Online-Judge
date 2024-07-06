@@ -7,6 +7,15 @@ if (!fs.existsSync(dirCodes)) {
 }
 const generateFile = (language, code) => {
   const jobID = uuid();
+  if(language=="cpp"){
+    language="cpp";
+  }
+  if(language=="python"){
+    language="py";
+  }
+  if(language=="javascript"){
+    language=="js";
+  }
   const fileName = `${jobID}.${language}`;
   const filePath = path.join(dirCodes, fileName);
   fs.writeFileSync(filePath, code);

@@ -20,7 +20,7 @@ function Navbar(){
                 <ul class="links">
                 <li class="li"><a class="a" onClick={()=>{navigate("/problemSet")}} href="#">Problem</a></li>
                 <li class="li"><a class="a" href="#">Contests</a></li>
-                <li class="li"><a class="a" href="#">Submissions</a></li>
+                <li class="li"><a class="a"  onClick={()=>{navigate("/submission")}} href="#">Submissions</a></li>
                 <li class="li"><a class="a" href="#">Info</a></li>
                 <li class="li"><a class="a" onClick={()=>{navigate("/addproblem")}}href="#">Add Problem</a></li>
                 <li class="li"><a class="a" onClick={()=>{navigate("/addcontest")}}href="#">Add Contest</a></li>
@@ -44,7 +44,7 @@ function Navbar(){
                 <ul class="links">
                 <li class="li"><a class="a" onClick={()=>{navigate("/problemSet")}} href="#">Problems</a></li>
                 <li class="li"><a class="a" href="#">Contests</a></li>
-                <li class="li" ><a class="a" href="#">Submissions</a></li>
+                <li class="li" ><a class="a" onClick={()=>{navigate("/submission")}} href="#">Submissions</a></li>
                 <li class="li"><a class="a" href="#">Info</a></li>
                 
                 </ul>
@@ -69,7 +69,7 @@ function Navbar(){
             <ul class="links">
             <li class="li"><a class="a" onClick={()=>{navigate("/problemSet")}} href="#">Problem</a></li>
             <li class="li"><a class="a" href="#">Contest</a></li>
-            <li class="li" ><a class="a" href="#">Submission</a></li>
+            <li class="li" ><a class="a" onClick={()=>{navigate("/submission")}} href="#">Submission</a></li>
             <li class="li"><a class="a" href="#">Info</a></li>
             </ul>
             <p></p>

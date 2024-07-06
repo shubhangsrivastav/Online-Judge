@@ -9,6 +9,7 @@ const Problem=require('./models/problem.js');
 const cors =require("cors");
 const dotenv=require('dotenv');
 const cookieParser = require('cookie-parser');
+const Submission = require("./models/submission.js");
 dotenv.config();
 const SECRET_KEY=process.env.SECRET_KEY;
 
@@ -179,8 +180,8 @@ app.post("/signin",async(req,res)=>{
 // add a problem
 app.post("/addproblem",async(req,res)=>{
     try{
-    const {title,description,input,output,difficulty,shortdes,submissions}=req.body;
-    if(!title || !description || !input || !output || !difficulty || !shortdes || !submissions){
+    const {title,description,input,output,difficulty,shortdes,submissions,exampleInput,exampleOutput,testCaseInput,testCaseOutput}=req.body;
+    if(!title || !description || !input || !output || !difficulty || !shortdes || !submissions || !exampleInput || !exampleOutput || !testCaseInput || !testCaseOutput){
         res.status(203).json({msg:"Some feilds are empty! Kindly fill them"});
     }
     
@@ -192,7 +193,12 @@ app.post("/addproblem",async(req,res)=>{
         output,
         difficulty,
         shortdes,
-        submissions
+        submissions,
+        exampleInput,
+        exampleOutput,
+        testCaseInput,
+        testCaseOutput,
+
     });
     res.status(200).json({msg:"Successfully",
         problem
@@ -223,6 +229,12 @@ app.get("/currentproblem/:pid",async(req,res)=>{
     catch(error){
         console.error(error);
     }
+})
+
+app.get("/submissions",async(req,res)=>{
+    const submissions=await Submission.find({});
+    return res.status(200).json({submissions:submissions});
+
 })
 
 app.listen(3000,()=>{

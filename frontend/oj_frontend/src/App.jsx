@@ -10,6 +10,7 @@ import ParticularProblem from './components/particularproblem';
 import AddContest from './components/addContest';
 import AddProblem from './components/addProblem';
 import {RecoilRoot} from "recoil"
+import Submission from './components/submission';
 function App() {
   
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path ="/problem/:pid" element={<ParticularProblem />} />
         <Route path ="/addproblem" element={<AddProblem />} />
         <Route path ="/addcontest" element={<AddContest />} />
+        <Route path ="/submission" element={<Submission />} />
 
 
         

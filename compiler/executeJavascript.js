@@ -5,7 +5,7 @@ const outputPath = path.join(__dirname, "outputs");
 if (!fs.existsSync(outputPath)) {
   fs.mkdirSync(outputPath, { recursive: true });
 }
-const executeCpp = (filePath,inputPath) => {
+const executePython = (filePath,inputPath) => {
   const jobID = path.basename(filePath).split(".")[0];
   const fileName = `${jobID}.out`;
   const outPath = path.join(outputPath, fileName);
@@ -35,4 +35,4 @@ const executeCpp = (filePath,inputPath) => {
   
 };
 
-module.exports = { executeCpp };
+module.exports = { executePython };
