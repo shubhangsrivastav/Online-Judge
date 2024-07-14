@@ -4,12 +4,13 @@ import { useSetRecoilState,useRecoilValue } from "recoil";
 import { minState } from "../store/atom/min";
 import { secState } from "../store/atom/sec";
 import "./clock.css"
-function Clock(props){
+function Clock(){
     const navigate=useNavigate();
-const min=useRecoilValue(minState);
-const sec=useRecoilValue(secState);
-const setMin=useSetRecoilState(minState);
-const setSec=useSetRecoilState(secState);
+    const min=useRecoilValue(minState);
+    const sec=useRecoilValue(secState);
+    const setMin=useSetRecoilState(minState);
+    const setSec=useSetRecoilState(secState);
+   
 const id=setTimeout(()=>{
     if(sec>0)
     setSec(sec-1);

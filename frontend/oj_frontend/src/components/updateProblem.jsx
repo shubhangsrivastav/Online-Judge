@@ -10,26 +10,50 @@ import { useParams } from 'react-router-dom';
 function UpdateProblem(){
     const { pid } = useParams();
     const  navigate=useNavigate();
-    const [problem,setProblem]=useState({});
-    const [title,setTitle]=useState(problem.title);  
-    const [description,setDescription]=useState(problem.description);  
-    const [shortdes,setShortdes]=useState(problem.shortdes);  
-    const [input,setInput]=useState(problem.input);  
-    const [output,setOutput]=useState(problem.output);  
-    const [difficulty,setDifficulty]=useState(problem.difficulty);  
-    const [submissions,setSubmissions]=useState(problem.submissions);  
-    const [exampleInput,setexampleInput]=useState(problem.exampleInput);  
-    const [exampleOutput,setexampleOutput]=useState(problem.exampleOutput);  
-    const [testCaseInput,settestCaseInput]=useState(problem.testCaseInput);  
-    const [testCaseOutput,settestCaseOutput]=useState(problem.testCaseOutput);
+    const [problem,setProblem]=useState(null);
+    const [title,setTitle]=useState("");  
+    const [description,setDescription]=useState("");  
+    const [shortdes,setShortdes]=useState("");  
+    const [input,setInput]=useState("");  
+    const [output,setOutput]=useState("");  
+    const [difficulty,setDifficulty]=useState("");  
+    const [submissions,setSubmissions]=useState("");  
+    const [exampleInput,setexampleInput]=useState("");  
+    const [exampleOutput,setexampleOutput]=useState("");  
+    const [testCaseInput,settestCaseInput]=useState("");  
+    const [testCaseOutput,settestCaseOutput]=useState("");
+    useEffect(() => {
+      axios.get(`http://localhost:3000/currentproblem/${pid}`).then((res) => {
+        const fetchedData=res.data.problem;
+        setProblem(fetchedData);
+        setTitle(fetchedData.title);
+        setDescription(fetchedData.description);
+        setShortdes(fetchedData.shortdes);
+        setInput(fetchedData.input);
+        setOutput(fetchedData.output);
+        setDifficulty(fetchedData.difficulty);
+        setSubmissions(fetchedData.submissions);
+        setexampleInput(fetchedData.exampleInput);
+        setexampleOutput(fetchedData.exampleOutput);
+        settestCaseInput(fetchedData.testCaseInput);
+        settestCaseOutput(fetchedData.testCaseOutput);
+
+
+        
+      });
+    },[]);
+    if (!problem) {
+      return <>loading</>;
+    }
+    
   
    
-    const changeTitle=(e)=>{
-      setTitle(e.target.value);
-    }
+    const changeTitle=(event)=>{
+      setTitle(event.target.value);
+    };
     const changeDescription=(e)=>{
       setDescription(e.target.value);
-    }
+    };
     const changeShortdes=(e)=>{
       setShortdes(e.target.value);
     }
@@ -57,20 +81,10 @@ function UpdateProblem(){
     const changeTestcaseOutput=(e)=>{
       settestCaseOutput(e.target.value);
     } 
-    useEffect(() => {
-        axios.get(`http://localhost:3000/currentproblem/${pid}`).then((res) => {
-          setProblem(res.data.problem);
-          console.log(problem);
-          
-        });
-      },[]);
-      if (!problem) {
-        return <>loading</>;
-      }
-      
+   
     
    
-  else{
+
     return  (
         <>
         <Navbar></Navbar>
@@ -81,53 +95,54 @@ function UpdateProblem(){
             <h1>Problem Details</h1>
             <div style={{display:'flex',margin:20}}>
             <div className="input-boxp">
-                <input type="text" id="title box" placeholder={problem.title} required onChange={changeTitle}/>
+                <input type="text" id="title box" value={title} required onChange={changeTitle}/>
                 
             </div>
             <div className="input-boxp">
-                <input id="Difficulty box" type="text" placeholder={problem.difficulty} required onChange={changeDifficulty}></input>
+                <input id="Difficulty box" type="text" value={difficulty} required onChange={changeDifficulty}></input>
                 
             </div>
             </div>
             <div className="input-boxp"style={{margin:20}} >
-                <input id="description box" type="text" placeholder={problem.description} required onChange={changeDescription}/>
+        
+                <input id="description box" type="text" value={description} required onChange={changeDescription}/>
                
             </div>
             <div className="input-boxp" style={{margin:20}}>
-                <input id="input box" type="text" placeholder={problem.input} required onChange={changeInput}/>
+                <input id="input box" type="text" value={input} required onChange={changeInput}/>
                 
             </div>
             <div className="input-boxp" style={{margin:20}}>
-                <input id="output box" type="text" placeholder={problem.output} required onChange={changeOutput}/>
+                <input id="output box" type="text" value={output} required onChange={changeOutput}/>
                 
             </div>
             <div style={{display:'flex',margin:20}}>
             <div className="input-boxp">
-                <input id="input box" type="text" placeholder={problem.exampleInput} required onChange={changeExampleInput}/>
+                <input id="input box" type="text" value={exampleInput} required onChange={changeExampleInput}/>
                 
             </div>
             <div className="input-boxp">
-                <input id="output box" type="text" placeholder={problem.exampleOutput} required onChange={changeExampleOutput}/>
+                <input id="output box" type="text" value={exampleOutput} required onChange={changeExampleOutput}/>
                 
             </div>
             </div>
             <div style={{display:'flex',margin:20}}>
             <div className="input-boxp">
-                <input id="input box" type="text" placeholder={problem.testCaseInput} required onChange={changeTestcaseInput}/>
+                <input id="input box" type="text" value={testCaseInput} required onChange={changeTestcaseInput}/>
                 
             </div>
             <div className="input-boxp">
-                <input id="output box" type="text" placeholder={problem.testCaseOutput} required onChange={changeTestcaseOutput}/>
+                <input id="output box" type="text" value={testCaseOutput} required onChange={changeTestcaseOutput}/>
                 
             </div>
             </div>
             <div style={{display:'flex', justifyContent:"space-between" ,margin:20}}>
             <div className="input-boxp">
-                <input id="=shortdes box" type="text" placeholder={problem.shortdes} required onChange={changeShortdes}/>
+                <input id="=shortdes box" type="text" value={shortdes} required onChange={changeShortdes}/>
                 
             </div>
             <div className="input-boxp">
-                <input id="submissions box" type="text" placeholder={problem.submissions} required onChange={changeSubmissions}/>
+                <input id="submissions box" type="text" value={submissions} required onChange={changeSubmissions}/>
                 
             </div>
             </div>
@@ -177,5 +192,5 @@ function UpdateProblem(){
         </>
     )
 }
-}
+
 export default UpdateProblem

@@ -16,6 +16,7 @@ import CardOa from './components/CardOa';
 import ParticularOa from './components/particularOa';
 import Clock from './components/clock';
 import Oaparticularproblem from './components/oaparticularporblem';
+import AddOa from './components/addoa';
 
 function App() {
   
@@ -39,6 +40,7 @@ function App() {
         <Route path ="/particularOa/:oaid" element={<ParticularOa />} />
         <Route path ="/clock" element={<Clock />} />
         <Route path ="/oaparticularproblem/:pid" element={<Oaparticularproblem />} />
+        <Route path ="/addoa" element={<AddOa />} />
 
         
        

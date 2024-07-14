@@ -1,8 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import "./CardOa.css"
+import { useSetRecoilState } from "recoil";
+import { minState } from "../store/atom/min";
+import { secState } from "../store/atom/sec";
 function CardOa(props){
     const navigate=useNavigate();
     const link=`/particularOa/${props.oaid}`;
+    const setMin=useSetRecoilState(minState);
+    const setSec=useSetRecoilState(secState);
 return (
     <>
    
@@ -14,6 +19,8 @@ return (
     <h6 class="difficulty">Time Duration: {props.timeDuration}</h6>
     <div >
     <a href="#" onClick={()=>{
+      setMin(props.timeDuration);
+      setSec(0);
         navigate(link);
     }} class="btn btn-outline-light">Start Quiz</a>
     

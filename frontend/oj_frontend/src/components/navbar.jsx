@@ -59,6 +59,7 @@ function Navbar(){
                 <li class="li"><a class="a"  onClick={()=>{navigate("/oapractice")}} href="#">OA Practice</a></li>
                 <li class="li"><a class="a"  onClick={()=>{navigate("/submission")}} href="#">Submissions</a></li>
                 <li class="li"><a class="a" onClick={()=>{navigate("/addproblem")}}href="#">Add Problem</a></li>
+                <li class="li"><a class="a" onClick={()=>{navigate("/addoa")}}href="#">Add OA</a></li>
                 
                 </ul>
                 <a href="/" onClick={()=>{localStorage.setItem("token",undefined)}} class="action_btn">Logout</a>
@@ -140,7 +141,22 @@ function Navbar(){
            
             </ul>
             <p></p>
-            
+            <div className="toggle_btn">
+                    <i onClick={()=>{
+                        const toggleBtn=document.querySelector(".toggle_btn");
+                        const toggleBtnIcon=document.querySelector(".toggle_btn i");
+                        const dropdown_menu=document.querySelector(".dropdown_menu");
+                        dropdown_menu.classList.toggle('open');
+                        const isOpen=dropdown_menu.classList.contains('open');
+                        toggleBtnIcon.classList=isOpen?'fa-solid fa-xmark':'fa-solid fa-bars'
+                    }} className="fa-solid fa-bars"></i>
+                </div>
+              <div className="dropdown_menu">
+              <li class="li"><a class="a" onClick={()=>{navigate("/problemSet")}} href="#">Problems</a></li>
+                <li class="li"><a class="a" onClick={()=>{navigate("/oapractice")}} href="#">OA Practice</a></li>
+                <li class="li" ><a class="a" onClick={()=>{navigate("/submission")}} href="#">Submissions</a></li>
+                <li class="li"> <a href="/" onClick={()=>{localStorage.setItem("token",undefined)}}  class="dropdown_action_btn">Logout</a></li>
+              </div>
           
         </div>
           

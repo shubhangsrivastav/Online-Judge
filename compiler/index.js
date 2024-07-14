@@ -77,6 +77,8 @@ app.post("/submit/:pid", async (req, res) => {
 
     const actualOutput = testCaseOutput.split(" ");
     const outputGenerated = output.split("\n");
+    console.log(actualOutput);
+    console.log(outputGenerated);
     outputGenerated.pop();
     var size = actualOutput.length;
     let p = -1;
