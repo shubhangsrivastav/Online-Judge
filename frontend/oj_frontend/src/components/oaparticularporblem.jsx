@@ -11,9 +11,10 @@ import Editor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs/components/prism-core";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "../store/atom/username";
+import Clock from "./clock";
 
 
-function ParticularProblem() {
+function OaparticularProblem() {
   const userName=useRecoilValue(userNameState);
   const { pid } = useParams();
   const [code, setCode] = useState(`
@@ -73,10 +74,19 @@ function ParticularProblem() {
       setRunStatus("1");
     }
   }
+  
   return (
     <>
       <Navbar></Navbar>
-      <div className="pcode"style={{ display: "flex" ,justifyContent:"space-between",alignItems:"center",margin:0}}>
+      <div className="clock"style={{display:"flex",justifyContent:"space-between",marginRight:40,alignContent:"center",height:100,paddingTop:20,fontWeight:"bold",color:"orange",fontSize:22}}>
+        <div style={{display:"flex"}} >
+     <p style={{marginLeft:10}}>Online</p> <p style={{marginLeft:5,color:"white"}}>Assessment Practice</p>
+     </div>
+      <div style={{display:"flex"}}>
+  Time Left :<Clock></Clock>
+  </div>
+  </div>
+      <div className="pcode" style={{ display: "flex" ,justifyContent:"space-between",alignItems:"center",margin:0}}>
         <div style={{marginRight:0,marginTop:-80,width:550}} >
         
           <Card2
@@ -143,4 +153,5 @@ function ParticularProblem() {
     </>
   );
 }
-export default ParticularProblem;
+
+export default OaparticularProblem;

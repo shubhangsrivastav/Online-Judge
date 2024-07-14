@@ -19,6 +19,10 @@ function AddProblem() {
   const [output,setOutput]=useState("");  
   const [difficulty,setDifficulty]=useState("");  
   const [submissions,setSubmissions]=useState();  
+  const [exampleInput,setexampleInput]=useState("");  
+  const [exampleOutput,setexampleOutput]=useState("");  
+  const [testCaseInput,settestCaseInput]=useState("");  
+  const [testCaseOutput,settestCaseOutput]=useState("");  
   
   const changeTitle=(e)=>{
     setTitle(e.target.value);
@@ -41,6 +45,18 @@ function AddProblem() {
   const changeSubmissions=(e)=>{
     setSubmissions(e.target.value);
   }
+  const changeExampleInput=(e)=>{
+    setexampleInput(e.target.value);
+  }
+  const changeExampleOutput=(e)=>{
+    setexampleOutput(e.target.value);
+  }
+  const changeTestcaseInput=(e)=>{
+    settestCaseInput(e.target.value);
+  }
+  const changeTestcaseOutput=(e)=>{
+    settestCaseOutput(e.target.value);
+  }
   
     return (
         <>
@@ -59,17 +75,35 @@ function AddProblem() {
                 
             </div>
             </div>
-            <div className="input-boxp"syle={{margin:20}} >
+            <div className="input-boxp"style={{margin:20}} >
                 <input id="description box" type="text" placeholder="Description" required onChange={changeDescription}/>
                
             </div>
-            <div style={{display:'flex',margin:20}}>
-            <div className="input-boxp">
+            <div className="input-boxp" style={{margin:20}}>
                 <input id="input box" type="text" placeholder="Input" required onChange={changeInput}/>
                 
             </div>
-            <div className="input-boxp">
+            <div className="input-boxp" style={{margin:20}}>
                 <input id="output box" type="text" placeholder="Output" required onChange={changeOutput}/>
+                
+            </div>
+            <div style={{display:'flex',margin:20}}>
+            <div className="input-boxp">
+                <input id="input box" type="text" placeholder="Example Input" required onChange={changeExampleInput}/>
+                
+            </div>
+            <div className="input-boxp">
+                <input id="output box" type="text" placeholder="Example Output" required onChange={changeExampleOutput}/>
+                
+            </div>
+            </div>
+            <div style={{display:'flex',margin:20}}>
+            <div className="input-boxp">
+                <input id="input box" type="text" placeholder="Test Case Input" required onChange={changeTestcaseInput}/>
+                
+            </div>
+            <div className="input-boxp">
+                <input id="output box" type="text" placeholder="Test Case Output" required onChange={changeTestcaseOutput}/>
                 
             </div>
             </div>
@@ -88,25 +122,22 @@ function AddProblem() {
                
              <Button variant="contained" onClick={
              async()=>{
-              if(title=="" || description=="" || input=="" || output=="" || submissions=="" || difficulty=="" || shortdes==""){
+              if(title=="" || description=="" || input=="" || output=="" || submissions=="" || difficulty=="" || shortdes=="" || exampleInput=="" || exampleOutput=="" || testCaseInput=="" || testCaseOutput==""){
          alert("Some feilds are empty! Kindly fill them.")
        }
                else{
                 const resp =await axios.post("http://localhost:3000/addproblem",{
-                    title:title,description:description,shortdes:shortdes,difficulty:difficulty,submissions:submissions,input:input,output:output
-                  },{headers: {
-                    Cookie: document.cookie 
-                  }});
+                    title:title,description:description,shortdes:shortdes,difficulty:difficulty,submissions:submissions,input:input,output:output,exampleInput,exampleOutput,testCaseInput,testCaseOutput
+                  },);
                console.log(resp.data);
                
                console.log(typeof(resp.data.msg));
                if(resp.data.msg==="Successfull"){
                  navigate("/problemSet");
-                 alert("Successfully Registered!");
+                 alert("Successfully Added Problem");
                }
                else{
-                 navigate("/register");
-                 alert(resp.data.msg);
+                alert(resp.data.msg);
                }
               }
        

@@ -94,10 +94,9 @@ app.post("/submit/:pid", async (req, res) => {
       verdict = `Wrong Answer on Test Case ${p}`;
     }
     const myTime = new Date();
-    const date = myTime.toString().split("T")[0];
+    const date = myTime.toString().split("GMT")[0];
     const formattedTime = `${date}`;
-    // console.log(formattedTime);
-
+    
     const submission = await Submission.create({
       userName,
       problemTitle,
@@ -120,6 +119,6 @@ app.post("/submit/:pid", async (req, res) => {
   }
 });
 
-app.listen(8080, () => {
-  console.log("Server listening on port 8080");
+app.listen(8081, () => {
+  console.log("Server listening on port 8081");
 });

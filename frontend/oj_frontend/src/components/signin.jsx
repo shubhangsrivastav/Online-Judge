@@ -26,7 +26,7 @@ return (<>
 
 
 <Navbar></Navbar>
-<div style={{display:"flex",justifyContent:"center", marginTop:30}}>
+<div className="all-signin" style={{display:"flex",justifyContent:"center", marginTop:30}}>
 <div className= "wrapper">
     <form action="">
         <h1>Signin</h1>
@@ -58,6 +58,7 @@ return (<>
              console.log(1);
               setType(resp.data.type);
               setUsernameState(resp.data.user.userName);
+              localStorage.setItem("token",resp.data.token);
              navigate("/problemSet");
              alert("Successfully Signed in!");
            }

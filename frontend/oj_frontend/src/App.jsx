@@ -7,10 +7,16 @@ import Signin from './components/signin';
 import Navbar from "./components/navbar";
 import Card from './components/pCard';
 import ParticularProblem from './components/particularproblem';
-import AddContest from './components/addContest';
+import UpdateProblem from './components/updateProblem';
 import AddProblem from './components/addProblem';
 import {RecoilRoot} from "recoil"
 import Submission from './components/submission';
+import Oa from './components/oapractice';
+import CardOa from './components/CardOa';
+import ParticularOa from './components/particularOa';
+import Clock from './components/clock';
+import Oaparticularproblem from './components/oaparticularporblem';
+
 function App() {
   
   return (
@@ -26,9 +32,16 @@ function App() {
         <Route path ="card" element={<Card />} />
         <Route path ="/problem/:pid" element={<ParticularProblem />} />
         <Route path ="/addproblem" element={<AddProblem />} />
-        <Route path ="/addcontest" element={<AddContest />} />
+        <Route path ="/updateProblem/:pid" element={<UpdateProblem />} />
         <Route path ="/submission" element={<Submission />} />
+        <Route path ="/oapractice" element={<Oa />} />
+        <Route path ="/CardOa" element={<CardOa />} />
+        <Route path ="/particularOa/:oaid" element={<ParticularOa />} />
+        <Route path ="/clock" element={<Clock />} />
+        <Route path ="/oaparticularproblem/:pid" element={<Oaparticularproblem />} />
 
+        
+       
 
         
        

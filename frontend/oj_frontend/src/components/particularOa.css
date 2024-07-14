@@ -1,0 +1,22 @@
+.all-particularoa-2{
+    margin-bottom:20;
+    display:"flex";
+    justify-content:"flex-end";
+    margin-right:100;
+    align-content:"center";
+    height:100;
+    padding-top:20;
+    font-weight:bold;
+    color:"orange";
+    font-size:22;
+    display: block;
+}
+@media(max-width:992px){
+    .all-particularoa{
+        margin-top: 250px;
+    }
+    .all-particularoa-2{
+       display: none;
+    }
+   
+}

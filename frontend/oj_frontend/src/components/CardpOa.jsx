@@ -1,8 +1,8 @@
 import axios from "axios";
 import  "./pCard.css"
 import { useNavigate } from "react-router-dom";
-function Card(props){
-const link=`/problem/${props.pid}`
+function CardpOa(props){
+const link=`/oaparticularproblem/${props.pid}`
 const navigate=useNavigate();
 return ( <>
 
@@ -24,4 +24,4 @@ return ( <>
 )
 }
 
-export default Card
+export default CardpOa

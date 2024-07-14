@@ -1,4 +1,3 @@
-
 import "./card2.css"
 function Card2(props){
 return <>
@@ -18,14 +17,38 @@ return <>
   <h4>OUTPUT</h4>
   <p > {props.output}</p>
   <h4>EXAMPLE</h4>
-  <p > input: {props.exampleInput}</p>
+  <p >input: <Spliit example={props.exampleInput}></Spliit> </p>
   <br />
-  <p > output: {props.exampleOutput}</p>
+  <p > output: <Spliit example={props.exampleOutput}></Spliit></p>
   
   </div>
 </div>
 </div>
 
 </>
+}
+
+function Spliit(props){
+let arr=props.example.split("n");
+console.log(arr.length);
+console.log(arr);
+arr=arr.map((e)=>{
+  let x=e.length;
+ e=e.slice(0,x-1);
+  return e;
+}
+)
+console.log(arr);
+
+return <>
+{
+  
+  arr.map((e)=>{
+    return <div>{e}</div>
+  }
+)
+}
+</>
+
 }
 export default Card2

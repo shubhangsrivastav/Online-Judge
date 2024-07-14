@@ -21,7 +21,7 @@ if(submission===undefined){
 return (
    <>
         <Navbar></Navbar>
-        <div style={{width:"100vw",display:"flex",flexDirection:"column",alignItems:"center",marginTop:30}}>
+        <div className="all-submission" style={{width:"100vw",display:"flex",flexDirection:"column",alignItems:"center",marginTop:30}}>
             {
                
              submission.map(e => {

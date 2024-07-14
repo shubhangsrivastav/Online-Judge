@@ -97,3 +97,8 @@ font-weight: 600;
 .register-link p a:hover{
     text-decoration: underline;
 }
+@media (max-width:992px){
+    .wrapper{
+        margin-top: 250px;
+    }
+}
