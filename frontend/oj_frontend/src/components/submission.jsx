@@ -2,10 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import Navbar from "./navbar";
 import "./submission.css"
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 function Submission(){
 const [submission,setSubmission]=useState();
 useEffect(()=>{
-   axios.get("http://localhost:3000/submissions").then((resp)=>{
+   axios.get(`${API_BASE_URL}/submissions`).then((resp)=>{
         setSubmission(resp.data.submissions);
         console.log(resp.data.submissions);
     });

@@ -6,6 +6,7 @@ import "./addproblem.css"
 import { Button } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useParams } from 'react-router-dom';
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 
 function UpdateProblem(){
     const { pid } = useParams();
@@ -23,7 +24,7 @@ function UpdateProblem(){
     const [testCaseInput,settestCaseInput]=useState("");  
     const [testCaseOutput,settestCaseOutput]=useState("");
     useEffect(() => {
-      axios.get(`http://localhost:3000/currentproblem/${pid}`).then((res) => {
+      axios.get(`${API_BASE_URL}/currentproblem/${pid}`).then((res) => {
         const fetchedData=res.data.problem;
         setProblem(fetchedData);
         setTitle(fetchedData.title);
@@ -155,7 +156,7 @@ function UpdateProblem(){
          alert("Some feilds are empty! Kindly fill them.")
        }
                else{
-                const resp =await axios.put(`http://localhost:3000/updateproblem/${pid}`,{
+                const resp =await axios.put(`${API_BASE_URL}/updateproblem/${pid}`,{
                     title:title,description:description,shortdes:shortdes,difficulty:difficulty,submissions:submissions,input:input,output:output,exampleInput,exampleOutput,testCaseInput,testCaseOutput
                   },);
                console.log(resp.data);
@@ -172,7 +173,7 @@ function UpdateProblem(){
              }
           }>Update Problem</Button> 
           <Button variant="contained" style={{marginLeft:10}} startIcon={<DeleteIcon />} onClick={async()=>{
-            const resp=await axios.delete(`http://localhost:3000/delete/${pid}`);
+            const resp=await axios.delete(`${API_BASE_URL}/delete/${pid}`);
             if(resp.data.message=="Successfull"){
                 navigate("/problemSet");
                 alert("Problem Deleted Successfully");

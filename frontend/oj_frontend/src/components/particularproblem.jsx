@@ -11,7 +11,7 @@ import Editor from "react-simple-code-editor";
 import { highlight, languages } from "prismjs/components/prism-core";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "../store/atom/username";
-
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 
 function ParticularProblem() {
   const userName=useRecoilValue(userNameState);
@@ -25,7 +25,7 @@ function ParticularProblem() {
   let [testCaseInput,setTestCaseInput]=useState("");
   let [runStatus,setRunStatus]=useState("");
   useEffect(() => {
-    axios.get(`http://localhost:3000/currentproblem/${pid}`).then((res) => {
+    axios.get(`${API_BASE_URL}/currentproblem/${pid}`).then((res) => {
       setProblem(res.data.problem);
       console.log(res.data.problem);
     });

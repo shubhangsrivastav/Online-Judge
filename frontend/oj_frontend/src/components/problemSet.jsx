@@ -8,11 +8,12 @@ import CardAdmin from "./CardAdmin";
 import { Button } from "@mui/base";
 import { typeState } from "../store/atom/type";
 import { useRecoilValue } from "recoil";
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 function ProblemSet(){
     let [problems,setProblems]=useState();
     const type=useRecoilValue(typeState);
     useEffect(()=>{
-         axios.get("http://localhost:3000/problems").then((resp)=>{
+         axios.get(`${API_BASE_URL}/problems`).then((resp)=>{
             problems=resp.data.problems;
         setProblems(problems);
         console.log(problems);

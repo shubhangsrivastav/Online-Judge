@@ -24,7 +24,7 @@ function Navbar(){
 
         if(token!=undefined){
             console.log(1);
-  axios.get('http://localhost:3000/me',{headers:{
+  axios.get('${API_BASE_URL}/me',{headers:{
     authorisation:"Bearer "+token
   }}).then(resp => {
     

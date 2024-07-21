@@ -4,11 +4,12 @@ import Navbar from "./navbar"
 import axios from "axios"
 import CardOa from "./CardOa";
 import "./oapractice.css"
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 function Oa(){
     let [oa,setOa]=useState();
   
     useEffect(()=>{
-         axios.get("http://localhost:3000/oa").then((resp)=>{
+         axios.get(`${API_BASE_URL}/oa`).then((resp)=>{
             oa=resp.data.oa;
         setOa(oa);
         console.log(oa);

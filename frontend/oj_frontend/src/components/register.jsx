@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import { useSetRecoilState } from "recoil";
 import { typeState } from "../store/atom/type";
 import { userNameState } from "../store/atom/username";
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 function Register(){
     const  navigate=useNavigate();
     const setType=useSetRecoilState(typeState);
@@ -70,7 +71,7 @@ function Register(){
         alert("Some feilds are empty! Kindly fill them.")
        }
               else{
-                const resp =await axios.post("http://localhost:3000/register",{
+                const resp =await axios.post(`${API_BASE_URL}/register`,{
                     userName:username,firstName:firstname,lastName:lastname,email:email,password:password
                   });
                console.log(resp.data);

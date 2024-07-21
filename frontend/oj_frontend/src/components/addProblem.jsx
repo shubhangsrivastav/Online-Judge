@@ -8,6 +8,7 @@ import { Button } from '@mui/material';
 import { useSetRecoilState } from "recoil";
 import { typeState } from "../store/atom/type";
 import { userNameState } from "../store/atom/username";
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 function AddProblem() {
     const  navigate=useNavigate();
     const setType=useSetRecoilState(typeState);
@@ -126,7 +127,7 @@ function AddProblem() {
          alert("Some feilds are empty! Kindly fill them.")
        }
                else{
-                const resp =await axios.post("http://localhost:3000/addproblem",{
+                const resp =await axios.post(`${API_BASE_URL}/addproblem`,{
                     title:title,description:description,shortdes:shortdes,difficulty:difficulty,submissions:submissions,input:input,output:output,exampleInput,exampleOutput,testCaseInput,testCaseOutput
                   },);
                console.log(resp.data);

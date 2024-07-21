@@ -7,6 +7,7 @@ import "./signin.css"
 import axios from 'axios';
 import { typeState } from "../store/atom/type";
 import { userNameState } from "../store/atom/username";
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 function Signin(){
     const  navigate=useNavigate();
    const setType=useSetRecoilState(typeState);
@@ -49,7 +50,7 @@ return (<>
            alert("Some feilds are empty! Kindly fill them.")
           }
           else{
-           const resp =await axios.post("http://localhost:3000/signin",{
+           const resp =await axios.post(`${API_BASE_URL}/signin`,{
              email:email,password:password
            });
            console.log(resp.data);

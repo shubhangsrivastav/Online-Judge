@@ -12,7 +12,7 @@ import { highlight, languages } from "prismjs/components/prism-core";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "../store/atom/username";
 import Clock from "./clock";
-
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 
 function OaparticularProblem() {
   const userName=useRecoilValue(userNameState);
@@ -26,7 +26,7 @@ function OaparticularProblem() {
   let [testCaseInput,setTestCaseInput]=useState("");
   let [runStatus,setRunStatus]=useState("");
   useEffect(() => {
-    axios.get(`http://localhost:3000/currentproblem/${pid}`).then((res) => {
+    axios.get(`${API_BASE_URL}/currentproblem/${pid}`).then((res) => {
       setProblem(res.data.problem);
       console.log(res.data.problem);
     });
