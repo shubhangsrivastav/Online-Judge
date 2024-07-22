@@ -4,6 +4,6 @@ RUN apk update && apk add --no-cache g++
 COPY package.json .
 RUN npm i
 COPY . .
-EXPOSE 8080
+EXPOSE 8081
 CMD [ "node","index.js" ]
 

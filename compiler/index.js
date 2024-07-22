@@ -1,7 +1,7 @@
 const express = require("express");
 const path = require("path");
 const app = express();
-const { DBconnections } = require("../backend/database/db.js");
+const { DBconnections } = require("./database/db.js");
 const { generateFile } = require("./generateFile");
 const { generateInputFile } = require("./generateInputFile");
 const { generateInputTestcaseFile } = require("./generateInputTestcaseFile");
@@ -9,14 +9,14 @@ const { executeCpp } = require("./executeCpp");
 const { executePython } = require("./executePython");
 const { executeJavascript } = require("./executeJavascript");
 const cors = require("cors");
-const Problem = require("../backend/models/problem.js");
-const Submission = require("../backend/models/submission.js");
+const Problem = require("./models/problem.js");
+const Submission = require("./models/submission.js");
 DBconnections();
 
 //middleware generateInputTescaseFile
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors({origin:"https://oj-frontend.onrender.com",credentials:true}));
 
 app.get("/", (req, res) => {
   res.json({ online: "compiler" });
@@ -77,8 +77,8 @@ app.post("/submit/:pid", async (req, res) => {
 
     const actualOutput = testCaseOutput.split(" ");
     const outputGenerated = output.split("\n");
-    console.log(actualOutput);
-    console.log(outputGenerated);
+    // console.log(actualOutput);
+    // console.log(outputGenerated);
     outputGenerated.pop();
     var size = actualOutput.length;
     let p = -1;

@@ -6,6 +6,7 @@ import { userNameState } from "../store/atom/username";
 import { useNavigate } from "react-router-dom";
 
 import axios from "axios";
+const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
 function Navbar(){
    const navigate=useNavigate();
  const type=useRecoilValue(typeState);
@@ -24,7 +25,7 @@ function Navbar(){
 
         if(token!=undefined){
             console.log(1);
-  axios.get('${API_BASE_URL}/me',{headers:{
+  axios.get(`${API_BASE_URL}/me`,{headers:{
     authorisation:"Bearer "+token
   }}).then(resp => {
     
