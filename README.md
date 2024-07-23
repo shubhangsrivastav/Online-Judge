@@ -1,0 +1,42 @@
+# Let's Code !
+
+Codify is a powerful online judge application built with the **MERN** stack (MongoDB, Express.js, React.js, Node.js) that allows users and admins to sign up and register. Users can solve coding questions, **compile** their code, and **run** it against test cases to receive a **verdict**. Additionally, users can practice online assessments from various companies.
+
+# Features
+-   User and Admin authentication and authorization.
+-   Solve coding questions and run code against predefined test cases.
+-   Generate verdicts based on test case results.
+-   Practice company-specific online assessments.
+-   User-friendly interface for an enhanced coding experience.
+
+# Technologies Used
+
+-   **Frontend**: React.js
+-   **Backend**: Node.js, Express.js
+-   **Database**: MongoDB
+-   **Other Libraries/Tools**:
+    -   Mongoose
+    -   JWT for authentication
+    -   Docker for containerization
+    -   AWS and Render for deployment 
+   
+
+# Usage
+
+1.  **Sign Up/Log In**: Create an account or log in as an existing user.
+2.  **Dashboard**: Access your dashboard to view available questions and assessments.
+3.  **Solve Questions**: Select a question, write your code, and submit it to see the verdict.
+4.  **Practice Assessments**: Choose a company assessment and practice.
+# Screenshots
+![Sign In Page](https://private-user-images.githubusercontent.com/98146913/351287218-fb0b743e-7bd1-4930-b062-cb3b07c39955.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE3MzA0NzYsIm5iZiI6MTcyMTczMDE3NiwicGF0aCI6Ii85ODE0NjkxMy8zNTEyODcyMTgtZmIwYjc0M2UtN2JkMS00OTMwLWIwNjItY2IzYjA3YzM5OTU1LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzIzVDEwMjI1NlomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU1NjUyNjljYzE1ZTEzYzk3NDE4NDFkYzE1YWQ5OWYwMGM2NTc5MTVhYWRmZmViZTZkMTIwOTVlNjY3ZjE0ZWQmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.0qrNAvlr5Rfide17X0k_K-RN65KgkCVwAPMtqSEIZ_c)
+![Problem Set Page](https://private-user-images.githubusercontent.com/98146913/351289301-781cd7b9-e7d7-4827-8c7f-710225e8d877.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE3MzA4MjUsIm5iZiI6MTcyMTczMDUyNSwicGF0aCI6Ii85ODE0NjkxMy8zNTEyODkzMDEtNzgxY2Q3YjktZTdkNy00ODI3LThjN2YtNzEwMjI1ZThkODc3LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzIzVDEwMjg0NVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWFmZDM3ZjVkOWJkMGFjNGUzOWE2MmQ5MWUyMjFhMzZhNTQxZWMxNGFiMzE1ZDFkZDk2YmYxNjM1N2JkNTY2YTgmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.AZB29Qt1i9L8zNqkmDfUiGi6cVHJ92JnM7QXKzbM19c)
+![Coding Space ](https://private-user-images.githubusercontent.com/98146913/351290236-61b8d9bd-18f8-4afe-ac34-2144a77ee84b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE3MzEwNTQsIm5iZiI6MTcyMTczMDc1NCwicGF0aCI6Ii85ODE0NjkxMy8zNTEyOTAyMzYtNjFiOGQ5YmQtMThmOC00YWZlLWFjMzQtMjE0NGE3N2VlODRiLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzIzVDEwMzIzNFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTcwNTY5YTk0MTAwNGMxOTZkMDQyYjY2MTRiMDZhZWUyYTMxZmM0MmE2YzZlZDYwM2VkMGE1NzdkOWU5ZWUwY2EmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.0zHVOgAZ2xHU3UYtgnq0PSVb4qNIf8-jox9daCAD3Yo)
+![Online Assessment Practice](https://private-user-images.githubusercontent.com/98146913/351291057-cf31b4ac-2a58-42fd-afe8-839e289f2c9b.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE3MzEyMTMsIm5iZiI6MTcyMTczMDkxMywicGF0aCI6Ii85ODE0NjkxMy8zNTEyOTEwNTctY2YzMWI0YWMtMmE1OC00MmZkLWFmZTgtODM5ZTI4OWYyYzliLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzIzVDEwMzUxM1omWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTk5YjNhN2ZhYTQyOTE4N2FiODM0YTk2OTMxNWQ3MTY5OGNmMWRkOTAwZGZkZWIyOWIwMmM2ZjhiZjFiNTAzZjEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.QB2N1mlQ-YEpu-iDaoOqjhKoSUOTLXM2D2Oz0ihmBeI)
+![Submissions](https://private-user-images.githubusercontent.com/98146913/351296174-c2030aaf-c531-4a58-bcd5-22d860a5efb4.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MjE3MzIyNzAsIm5iZiI6MTcyMTczMTk3MCwicGF0aCI6Ii85ODE0NjkxMy8zNTEyOTYxNzQtYzIwMzBhYWYtYzUzMS00YTU4LWJjZDUtMjJkODYwYTVlZmI0LnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDA3MjMlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQwNzIzVDEwNTI1MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU5MzdjZGE5NTk3MDg4ODgzMjdjMGMzOTE5N2ExNmM1MWEzNGFmYWY0NzZmOGM1MjhlZTZlNTI1MWE0MjQyNzkmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0JmFjdG9yX2lkPTAma2V5X2lkPTAmcmVwb19pZD0wIn0.egjmsjpymGwe8_YF8KDZmYrt7n_MWqBy00rgozxjApU)
+
+
+
+## Contact
+
+For any inquiries, please reach out to shubhang952002@gmail.com
+
