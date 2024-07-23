@@ -74,8 +74,8 @@ function Register(){
                 const resp =await axios.post(`${API_BASE_URL}/register`,{
                     userName:username,firstName:firstname,lastName:lastname,email:email,password:password
                   });
-               console.log(resp.data);
-               console.log(typeof(resp.data.msg));
+              //  console.log(resp.data);
+              //  console.log(typeof(resp.data.msg));
                if(resp.data.msg==="Successfull"){
           
                  setType(resp.data.type);

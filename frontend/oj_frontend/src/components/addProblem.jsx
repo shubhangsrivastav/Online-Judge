@@ -130,9 +130,9 @@ function AddProblem() {
                 const resp =await axios.post(`${API_BASE_URL}/addproblem`,{
                     title:title,description:description,shortdes:shortdes,difficulty:difficulty,submissions:submissions,input:input,output:output,exampleInput,exampleOutput,testCaseInput,testCaseOutput
                   },);
-               console.log(resp.data);
+              //  console.log(resp.data);
                
-               console.log(typeof(resp.data.msg));
+              //  console.log(typeof(resp.data.msg));
                if(resp.data.msg==="Successfull"){
                  navigate("/problemSet");
                  alert("Successfully Added Problem");

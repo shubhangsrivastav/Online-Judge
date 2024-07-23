@@ -159,7 +159,7 @@ function UpdateProblem(){
                 const resp =await axios.put(`${API_BASE_URL}/updateproblem/${pid}`,{
                     title:title,description:description,shortdes:shortdes,difficulty:difficulty,submissions:submissions,input:input,output:output,exampleInput,exampleOutput,testCaseInput,testCaseOutput
                   },);
-               console.log(resp.data);
+              //  console.log(resp.data);
 
                if(resp.data.msg==="Successfull"){
                  navigate("/problemSet");

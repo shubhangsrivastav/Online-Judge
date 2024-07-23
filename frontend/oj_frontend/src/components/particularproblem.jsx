@@ -12,6 +12,7 @@ import { highlight, languages } from "prismjs/components/prism-core";
 import { useRecoilValue } from "recoil";
 import { userNameState } from "../store/atom/username";
 const API_BASE_URL=import.meta.env.VITE_API_BASE_URL
+const COMPILER_URL=import.meta.env.VITE_COMPILER_BASE_URL
 
 function ParticularProblem() {
   const userName=useRecoilValue(userNameState);
@@ -19,7 +20,7 @@ function ParticularProblem() {
   const [code, setCode] = useState(`
     Your Code goes here!`);
     const [verdict,setVerdict]=useState("");
-  console.log(pid);
+  // console.log(pid);
   let [problem, setProblem] = useState();
   let [output,setOutput]=useState("");
   let [testCaseInput,setTestCaseInput]=useState("");
@@ -27,7 +28,7 @@ function ParticularProblem() {
   useEffect(() => {
     axios.get(`${API_BASE_URL}/currentproblem/${pid}`).then((res) => {
       setProblem(res.data.problem);
-      console.log(res.data.problem);
+      // console.log(res.data.problem);
     });
   }, []);
   if (!problem) {
@@ -36,19 +37,19 @@ function ParticularProblem() {
   const changeInput=(e)=>{
     setTestCaseInput(e.target.value);
   }
-  console.log(code);
+  // console.log(code);
   const handleRun = async () => {
     try {
       setRunStatus("");
       if(userName!==undefined){
       setVerdict("");
-      console.log(testCaseInput);
-      const { data } = await axios.post("http://localhost:8081/run", {
+      // console.log(testCaseInput);
+      const { data } = await axios.post(`${COMPILER_URL}/run`, {
         language: "cpp",
         code,
         testCaseInput
       });
-      console.log(data.output);
+      // console.log(data.output);
       setOutput(data.output);}
       else{
         alert("Please Signin!");
@@ -62,8 +63,8 @@ function ParticularProblem() {
     try {
       setRunStatus("");
       if(userName!==undefined){
-     const {data}= await axios.post(`http://localhost:8081/submit/${pid}`,{code,language:"cpp",userName});
-     console.log(data);
+     const {data}= await axios.post(`${COMPILER_URL}/submit/${pid}`,{code,language:"cpp",userName});
+    //  console.log(data);
      setVerdict(data.message);}
      else{
       alert("Please Signin!");

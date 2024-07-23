@@ -30,15 +30,15 @@ return <>
 
 function Spliit(props){
 let arr=props.example.split("n");
-console.log(arr.length);
-console.log(arr);
+// console.log(arr.length);
+// console.log(arr);
 arr=arr.map((e)=>{
   let x=e.length;
  e=e.slice(0,x-1);
   return e;
 }
 )
-console.log(arr);
+// console.log(arr);
 
 return <>
 {

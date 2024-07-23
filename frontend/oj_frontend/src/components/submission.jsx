@@ -8,7 +8,7 @@ const [submission,setSubmission]=useState();
 useEffect(()=>{
    axios.get(`${API_BASE_URL}/submissions`).then((resp)=>{
         setSubmission(resp.data.submissions);
-        console.log(resp.data.submissions);
+        // console.log(resp.data.submissions);
     });
     
     

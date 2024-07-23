@@ -16,7 +16,7 @@ function ProblemSet(){
          axios.get(`${API_BASE_URL}/problems`).then((resp)=>{
             problems=resp.data.problems;
         setProblems(problems);
-        console.log(problems);
+        // console.log(problems);
         })
       
     },[])

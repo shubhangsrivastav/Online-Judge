@@ -78,9 +78,9 @@ function AddOa() {
                 const resp =await axios.post(`${API_BASE_URL}/addoa`,{
                     company,noOfQues,timeDuration,givenBy,questionIds
                   },);
-               console.log(resp.data);
+              //  console.log(resp.data);
                
-               console.log(typeof(resp.data.msg));
+              //  console.log(typeof(resp.data.msg));
                if(resp.data.msg==="Successfull"){
                  navigate("/oapractice");
                  alert("Successfully Added OA");

@@ -12,7 +12,7 @@ function Oa(){
          axios.get(`${API_BASE_URL}/oa`).then((resp)=>{
             oa=resp.data.oa;
         setOa(oa);
-        console.log(oa);
+        // console.log(oa);
         })
       
     },[])

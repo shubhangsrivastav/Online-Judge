@@ -13,7 +13,7 @@ function ParticularOa(){
 useEffect(()=>{
     try {
         axios.get(`${API_BASE_URL}/currentoa/${oaid}`).then((res)=>{
-            console.log(res.data.oaProblems);
+            // console.log(res.data.oaProblems);
             setProblems(res.data.oaProblems);
         })
     } catch (error) {
