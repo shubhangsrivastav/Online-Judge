@@ -32,7 +32,7 @@ Codify is a powerful online judge application built with the **MERN** stack (Mon
 [Demostration]((https://drive.google.com/file/d/1WZunXQUoPOmKSIDhswbiMxxAskSW-5_e/view?usp=sharing))
 
 # HLD Doc
-[Doc]([https://docs.google.com/document/d/1UMVVFIZqxqF3hPIoyL5E5e6JItCzoTX6GkPQgRsqaHo/edit?usp=sharing])
+[Doc][https://docs.google.com/document/d/1UMVVFIZqxqF3hPIoyL5E5e6JItCzoTX6GkPQgRsqaHo/edit?usp=sharing]
 
 Visit:https://oj-frontend.onrender.com
 ## Contact
